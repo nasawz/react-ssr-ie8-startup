@@ -1,24 +1,10 @@
-// var moduleAlias = require('module-alias');
-// moduleAlias.addAliases({
-//   react: 'anujs/dist/ReactIE.js',
-//   'react-dom': 'anujs/dist/ReactIE.js',
-//   'prop-types': 'anujs/lib/ReactPropTypes.js',
-//   'create-react-class': 'anujs/lib/createClass.js'
-//   // 'react-tap-event-plugin': 'anujs/lib/injectTapEventPlugin',
-//   // rematch: 'anujs/dist/Rematch.js',
-//   // redux: 'anujs/lib/ReduxIE.js'
-// });
-
 global.React = require('anujs/dist/ReactIE');
 global.rematch = require('anujs/dist/Rematch');
-// global.router = require('anujs/dist/Router');
 var path = require('path');
 var React = global.React;
-// var ReactDOMServer = require('anujs/dist/ReactDOMServer');
 
 var ReactDOMServer = require('react-dom/server');
 
-var ServerLocation = require('@reach/router').ServerLocation;
 var express = require('express');
 var boom = require('express-boom');
 var __basename = path.dirname(__dirname);
