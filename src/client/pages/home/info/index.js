@@ -6,7 +6,7 @@ class Home extends React.Component {
     console.log(this.props);
     return (
       <div>
-        <h2>Welcome</h2>
+        <h2>Info</h2>
       </div>
     );
   }

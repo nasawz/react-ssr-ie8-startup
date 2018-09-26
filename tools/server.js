@@ -3,7 +3,7 @@ const express = require('express');
 const devMiddleware = require('webpack-dev-middleware');
 const hotMiddleware = require('webpack-hot-middleware');
 
-const getConfig = require('./webpack-config');
+const getConfig = require('./webpack-config-client');
 const webpack = require('webpack');
 const config = require('./config');
 

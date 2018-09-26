@@ -21,6 +21,7 @@ function buildEntriesAndHTML() {
   };
   const entries = {};
   const htmls = [];
+  entries['style'] = './src/client/styles/index.less';
   result.forEach((item) => {
     const one = path.parse(item);
     // console.log(one.dir);
@@ -44,7 +45,7 @@ function buildEntriesAndHTML() {
       new HtmlWebpackPlugin({
         ...config,
         template: './src/client/templates/index.ejs',
-        chunks: [filename],
+        chunks: ['style', filename],
         filename: `${filename}.html`
       })
     );
@@ -224,6 +225,10 @@ module.exports = (type) => {
           {
             from: config.__basename + '/lib/dist',
             to: 'lib/'
+          },
+          {
+            from: config.webpack.path.src + '/assets',
+            to: 'assets/'
           }
         ]),
         new MiniCssExtractPlugin({

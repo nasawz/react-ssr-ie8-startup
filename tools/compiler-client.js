@@ -5,7 +5,7 @@ const config = require('./config');
 const path = require('path');
 const webpack = require('webpack');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
-const webpackConfig = require('./webpack-config')('dist');
+const webpackConfig = require('./webpack-config-client')('dist');
 const shell = require('shelljs');
 
 // Clean folder
@@ -13,8 +13,6 @@ const buildFolder = config.webpack.path.pub;
 shell.rm('-rf', buildFolder);
 
 // Webpack build
-console.log('Building, it may take a few seconds...');
-console.time('✨ Done');
 const compiler = webpack(webpackConfig);
 
 let lastPercentage = 0;
@@ -29,10 +27,24 @@ compiler.apply(
   })
 );
 
-compiler.run((err, res) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.timeEnd('✨ Done');
-  }
-});
+if (process.env.WATCH_MODE === 'true') {
+  compiler.watch(
+    {
+      /* watchOptions */
+    },
+    (err, stats) => {
+      // Print watch/build result here...
+      console.log('watch ✨ succ');
+    }
+  );
+} else {
+  console.log('Building, it may take a few seconds...');
+  console.time('build ✨ Done');
+  compiler.run((err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.timeEnd('build ✨ Done');
+    }
+  });
+}
