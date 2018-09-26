@@ -29,6 +29,7 @@ app.get('/', function(req, res) {
     title: '后端渲染',
     keywords: '关键字',
     description: '详细说明',
+    state: JSON.stringify({ ssr: 'succ' }),
     component: ReactDOMServer.renderToString(<Home />)
   });
 });
@@ -39,6 +40,7 @@ app.get('/home/info', function(req, res) {
     title: '后端渲染',
     keywords: '',
     description: '',
+    state: JSON.stringify({}),
     component: ReactDOMServer.renderToString(<Info />)
   });
 });
@@ -48,6 +50,7 @@ app.get('/input', function(req, res) {
     title: '后端渲染',
     keywords: '',
     description: '',
+    state: JSON.stringify({}),
     component: ReactDOMServer.renderToString(<Input />)
   });
 });
@@ -57,6 +60,7 @@ app.get('/dashboard', function(req, res) {
     title: '后端渲染',
     keywords: '',
     description: '',
+    state: JSON.stringify({}),
     component: ReactDOMServer.renderToString(<Dashboard />)
   });
 });
