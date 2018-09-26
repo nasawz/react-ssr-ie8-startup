@@ -1,30 +1,33 @@
-# 前端架构方案 —— SSR & Anujs 
+# 前端架构方案 —— SSR & Anujs
 
-每一个国家的都有其特殊国情，每个项目都有特殊的项目情况。这个项目就对SEO和ie8有了特殊的要求。
+每一个国家的都有其特殊国情，每个项目都有特殊的项目情况。这个项目就对 SEO 和 ie8 有了特殊的要求。
 
 ## SEO
+
 > Search Engine Optimization,搜索引擎优化
 
 各类搜索引擎抓取页面的源码，识别其中的文本信息并予以记录。
 
 #### SPA
-> Single Page Application单页面应用程序
 
-现在时下流行的前端方案就是SPA方案了，html元素控制都是通过js渲染来进行的。在页面源码中只有基础的demo、css地址和js地址。
+> Single Page Application 单页面应用程序
+
+现在时下流行的前端方案就是 SPA 方案了，html 元素控制都是通过 js 渲染来进行的。在页面源码中只有基础的 demo、css 地址和 js 地址。
 
 #### 同构直出
 
-在现有的SPA工作模式下，使用同构直出的手段，不仅可以保留我们现有的开发模式，还可以减少很多工作量。前后端完全使用同一套代码，将前端的渲染逻辑移到服务器端完成，将渲染后的结果再交给用户。
+在现有的 SPA 工作模式下，使用同构直出的手段，不仅可以保留我们现有的开发模式，还可以减少很多工作量。前后端完全使用同一套代码，将前端的渲染逻辑移到服务器端完成，将渲染后的结果再交给用户。
 
 当前 node 在服务端有着许多主流抑或非主流的框架，包括 express、koa、thinkjs 等，能够较快上手，利用各种中间件得以进行敏捷开发。
 
-另外诸如 ejs、jade 这样的渲染模板能让我们轻松地把首屏内容（数据以及渲染好的DOM树）注入页面中。
+另外诸如 ejs、jade 这样的渲染模板能让我们轻松地把首屏内容（数据以及渲染好的 DOM 树）注入页面中。
 
 这样用户访问到的便是已经带有首屏内容的页面，大大降低了等候时间，提升了体验。
 
 **目录结构**
+
 ```
-cmc_open_store 
+cmc_open_store
   ├─build   // 服务端构建目录
   │  └─server.bundle.js
   ├─dist    // 客户端端构建目录
@@ -94,8 +97,9 @@ cmc_open_store
   └─package.json
 ```
 
-**动态meta**
-借助于EJS这个高效的 JavaScript 模板引擎，可以直接由后台来控制html页面的渲染。
+**动态 meta**
+借助于 EJS 这个高效的 JavaScript 模板引擎，可以直接由后台来控制 html 页面的渲染。
+
 ```
     <meta name="Keywords" content="<?= keywords ?>">
     <meta name="description" content="<?= description ?>" />
@@ -107,30 +111,26 @@ cmc_open_store
     </script>
     <div id='mainContainer'>
         <?- component ?>
-    </div>    
+    </div>
 ```
 
-
-
-
 ## Anujs
+
 简介
-> anujs是一个高级兼容React16的迷你React 框架，它兼容React16.3.0的99%接口， 跑通了官方788个case， 支持React生态圈的99％的组件与UI库。
+
+> anujs 是一个高级兼容 React16 的迷你 React 框架，它兼容 React16.3.0 的 99%接口， 跑通了官方 788 个 case， 支持 React 生态圈的 99％的组件与 UI 库。
 
 优势
-1. 支持React16的各种新功能，Fragment, componentDidCatch, creactContext, createRef, forwardRef...
-2. 支持React16的各种新功能，Fragment, componentDidCatch, creactContext, createRef, forwardRef...
-3. 支持React全家桶（react-redux, react-router-dom, react-router-redux， react-lazy-load， react-hot-loader...）
-4. 支持99％的antd组件 （antd为中国最有名的React UI 库） 
+
+1. 支持 React16 的各种新功能，Fragment, componentDidCatch, creactContext, createRef, forwardRef...
+2. 支持 React16 的各种新功能，Fragment, componentDidCatch, creactContext, createRef, forwardRef...
+3. 支持 React 全家桶（react-redux, react-router-dom, react-router-redux， react-lazy-load， react-hot-loader...）
+4. 支持 99％的 antd 组件 （antd 为中国最有名的 React UI 库）
 
 已知问题
 无法做按需加载
 无法压缩
 
 解决方案
-anu编译为独立类库
+anu 编译为独立类库
 垫片层编译独立类库
-
-
-
-
