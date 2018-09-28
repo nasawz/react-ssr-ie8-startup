@@ -16,8 +16,6 @@ ejs.delimiter = '?';
 app.set('view engine', 'ejs');
 app.engine('.html', ejs.__express);
 
-require('node-jsx').install({ extension: '.jsx' });
-
 app.use('/bundle', express.static(path.resolve(__basename, '../dist/bundle')));
 app.use('/assets', express.static(path.resolve(__basename, '../dist/assets')));
 app.use('/lib', express.static(path.resolve(__basename, '../dist/lib')));

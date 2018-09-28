@@ -10,6 +10,8 @@
     "build:server": "node ./tools/compiler-server.js",
     "watch:server": "cross-env WATCH_MODE=true node ./tools/compiler-server.js",
     "start:server": "npx nodemon --watch build build/server.bundle.js",
+    "build:anu": "npx gulp --gulpfile ./lib/gulpfile.js",
+    "build:polyfill": "npx gulp --gulpfile ./lib/gulpfile.js polyfill",
     "ssr": "npx npm-run-all --parallel watch:client watch:server start:server"
   },
   "keywords": [],
@@ -78,6 +80,7 @@
     "glob": "^7.1.3",
     "module-alias": "^2.1.0",
     "node-jsx": "^0.13.3",
+    "null-loader": "^0.1.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

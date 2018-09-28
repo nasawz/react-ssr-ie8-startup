@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 import './style/index.less';
+import BaseLayout from '../../layout/base';
 
 class Home extends React.Component {
   constructor(params) {
@@ -32,13 +33,15 @@ class Home extends React.Component {
     //   return '';
     // }
     return (
-      <div>
-        <h2>
-          Welcome {ssr}
-          <img src="/assets/images/tongxin.png" onClick={this.onClick.bind(this)} />
-          {str}
-        </h2>
-      </div>
+      <BaseLayout>
+        <div>
+          <h2>
+            Welcome {ssr}
+            <img src="/assets/images/tongxin.png" onClick={this.onClick.bind(this)} />
+            {str}
+          </h2>
+        </div>
+      </BaseLayout>
     );
   }
 }

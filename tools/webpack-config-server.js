@@ -62,6 +62,18 @@ module.exports = {
       {
         test: /\.json$/,
         use: 'json-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'null-loader' }]
+      },
+      {
+        test: /\.less$/,
+        use: [{ loader: 'null-loader' }]
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+        use: [{ loader: 'null-loader' }]
       }
     ]
   }
